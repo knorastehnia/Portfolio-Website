@@ -3,10 +3,10 @@ const scroll_button = document.querySelector("#scroll-down");
 const concealer = document.querySelector(".concealer");
 const cards = document.querySelectorAll(".card");
 
-const default_scroll_height = "25%";
-
 window.onscroll = function (e) {
-    if (window.scrollY > 250) {
+    let scroll_length = window.scrollY / document.body.scrollHeight * 50 + 25 + '%';
+
+    if (window.scrollY > 220) {
         overview.classList.add("overview-left");
         overview.classList.remove("overview-center");
 
@@ -14,7 +14,7 @@ window.onscroll = function (e) {
 
         concealer.classList.add("hidden");
 
-        overview.style.top = window.scrollY / document.body.scrollHeight * 50 + 25 + '%';
+        overview.style.top = scroll_length;
     } else {
         overview.classList.add("overview-center");
         overview.classList.remove("overview-left");
@@ -27,7 +27,7 @@ window.onscroll = function (e) {
     }
 
     cards.forEach(card => {
-        if (Math.abs(card.getBoundingClientRect().y) < 600) {
+        if (card.getBoundingClientRect().y < 600) {
             card.classList.add("card-visible");
         } else {
             card.classList.remove("card-visible");

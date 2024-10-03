@@ -1,6 +1,11 @@
 :root {
-    --bg-color: #d6e7e4;
+    --primary-color: #dce9f4;
     --card-color: #222e34;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #415688;
 }
 
 @font-face {
@@ -23,7 +28,7 @@ html, body {
     font-weight: 400;
     font-style: normal;
     scroll-behavior: smooth;
-    background-color: var(--bg-color);
+    background-color: var(--primary-color);
 }
 
 #overview-bg {
@@ -48,11 +53,11 @@ html, body {
     top: 25%;
     left: 25%;
     padding: 45px 25px 45px 45px;
-    transition: all 0.5s;
+    transition: all 0.5s, top 0.7s;
 }
 
 .overview-left #name {
-    color: #dce9f4;
+    color: var(--primary-color);
     margin: 0;
     width: 0;
     font-size: calc(0.5em + 1.25cqw);
@@ -126,7 +131,6 @@ html, body {
     opacity: 0;
     color: #dce9f4;
     background-color: #0b5e71;
-    /* box-shadow: 2px 2px 3px #19232c; */
     width: 30vw;
     padding: 65px;
     margin: 30px 45px 30px auto;
