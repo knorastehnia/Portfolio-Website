@@ -1,11 +1,11 @@
 :root {
     --primary-color: #dce9f4;
-    --card-color: #222e34;
+    --secondary-color: #35454f;
 }
 
 ::selection {
-    background-color: var(--primary-color);
-    color: #415688;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 @font-face {
@@ -32,7 +32,7 @@ html, body {
 }
 
 #overview-bg {
-    background: linear-gradient(50deg, #415688 0%, #0b5e71 35%, #007156 100%);
+    background: linear-gradient(50deg, #738bc2 0%, #52a0b0 35%, #2b977e 100%);
     height: 100%;
     width: 100%;
     /* box-shadow: 0px 2px 3px #050b0edd; */
@@ -41,9 +41,9 @@ html, body {
 #overview {
     position: fixed;
     text-align: center;
-    background-color: var(--card-color);
-    /* box-shadow: 2px 2px 3px #050b0ebb; */
-    border-radius: 0px;
+    background-color: var(--primary-color);
+    box-shadow: 1px 1px 3px #7c8a96;
+    border-radius: 15px;
     transform: translate(-50%, -50%);
     white-space: nowrap;
 }
@@ -56,8 +56,31 @@ html, body {
     transition: all 0.5s, top 0.7s;
 }
 
+#scrollbar {
+    position: fixed;
+    background-color: var(--secondary-color);
+    /* background-color: #7c8a96; */
+    top: 25%;
+    left: 25%;
+    width: 1px;
+    height: 50%;
+    transition: all 1.2s;
+}
+
+#scrollbar.hidden {
+    height: 0;
+    top: 35%;
+}
+
+#name {
+    color: var(--secondary-color);
+}
+
+#title {
+    color: #606a72;
+}
+
 .overview-left #name {
-    color: var(--primary-color);
     margin: 0;
     width: 0;
     font-size: calc(0.5em + 1.25cqw);
@@ -66,7 +89,6 @@ html, body {
 }
 
 .overview-left #title {
-    color: #90a9bf;
     margin: 0;
     width: 0;
     font-size: calc(0.5em + 0.95cqw);
@@ -83,7 +105,6 @@ html, body {
 }
 
 .overview-center #name {
-    color: #dce9f4;
     margin: 0;
     width: 100%;
     font-size: calc(0.5em + 2cqw);
@@ -92,7 +113,6 @@ html, body {
 }
 
 .overview-center #title {
-    color: #90a9bf;
     margin: 0;
     width: 100%;
     font-size: calc(0.5em + 1.6cqw);
@@ -102,7 +122,7 @@ html, body {
 
 #scroll-down {
     margin: 50px;
-    color: #90a9bf;
+    color: #919eaa;
     text-decoration: none;
     font-size: 0.8em;
     transition: all 0.15s;
@@ -115,7 +135,7 @@ html, body {
 
 .concealer {
     position: absolute;
-    background-color: var(--card-color);
+    background-color: var(--primary-color);
     /* background-color: red; */
     height: 100%;
     width: 100%;
@@ -129,8 +149,10 @@ html, body {
 .card {
     position: relative;
     opacity: 0;
-    color: #dce9f4;
-    background-color: #0b5e71;
+    color: #222e34;
+    background-color: #d3e1ef;
+    box-shadow: 1px 1px 3px #7c8a96;
+    border-radius: 15px;
     width: 30vw;
     padding: 65px;
     margin: 30px 45px 30px auto;
@@ -144,19 +166,22 @@ html, body {
 }
 
 .card-content {
+    color: var(--secondary-color);
     position: relative;
-    width: 25vw;
+    width: 30vw;
     /* width: 70%; */
+    transition: all 0.1s 0.1s;
 }
     
 .reveal {
     position: absolute;
-    background-color: #222e34;
+    background-color: var(--primary-color);
     top: 0;
     margin: -65px;
     margin-top: 0;
     height: 100%;
     width: 100%;
+    /* border-radius: 15px; */
     transition: all 0.5s;
 }
 
@@ -168,6 +193,10 @@ html, body {
     width: 0;
     margin-right: 100%;
 }
+
+/* .card:hover .card-content {
+    color: var(--primary-color);
+} */
 
 #contact {
     position: absolute;
@@ -187,8 +216,7 @@ html, body {
 }
 
 #contact img:hover {
-    opacity: 0.5;
-    transition: all 0.15s;
+    opacity: 0.3;
 }
 
 .hidden {
