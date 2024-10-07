@@ -48,6 +48,21 @@ html, body {
     white-space: nowrap;
 }
 
+#overview.overview-bottom {
+    border-radius: 0;
+    box-shadow: none;
+    background-color: #d3e1ef;
+    border-radius: 0;
+    width: 100%;
+    left: 50%;
+    top: 100%;
+    transition: all 0.5s;
+}
+
+.overview-bottom .separator {
+    padding: 10px;
+}
+
 .overview-left {
     width: 30%;
     top: 25%;
@@ -84,7 +99,7 @@ html, body {
     margin: 0;
     width: 0;
     font-size: calc(0.5em + 1.25cqw);
-    font-weight: 700;
+    font-weight: 800;
     transition: width 2s, font-size 0.5s;
 }
 
@@ -137,6 +152,8 @@ html, body {
     position: absolute;
     background-color: var(--primary-color);
     /* background-color: red; */
+    padding: 4px;
+    margin: -2px;
     height: 100%;
     width: 100%;
     transition: all 0.15s;
@@ -144,6 +161,7 @@ html, body {
 
 .separator {
     padding: 40px;
+    transition: all 0.5s;
 }
 
 .card {
@@ -224,6 +242,13 @@ html, body {
     pointer-events: none;
 }
 
+#footer {
+    background-color: var(--secondary-color);
+    height: 100%;
+    width: 100%;
+}
+
 h1 {
     font-family: "Arvo", serif;
+    
 }

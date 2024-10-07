@@ -30,6 +30,13 @@ window.onscroll = function (e) {
         overview.style.top = "50%";
     }
 
+    if (document.body.scrollHeight - scrollY < 1200) {
+        overview.classList.add("overview-bottom");
+        overview.style.top = "80%";
+    } else {
+        overview.classList.remove("overview-bottom")
+    }
+
     cards.forEach(card => {
         if (card.getBoundingClientRect().y < 600) {
             card.classList.add("card-visible");
