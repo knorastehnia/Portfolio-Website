@@ -73,12 +73,13 @@ html, body {
 
 #scrollbar {
     position: fixed;
-    background-color: var(--secondary-color);
-    /* background-color: #7c8a96; */
-    top: 25%;
+    border-style: solid;
+    border-width: 0 1px 0 1px;
+    border-color: #606a72;
+    top: 20%;
     left: 25%;
-    width: 1px;
-    height: 50%;
+    width: 12px;
+    height: 60%;
     transition: all 1.2s;
 }
 
