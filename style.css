@@ -51,7 +51,7 @@ html, body {
     width: 30%;
     top: 25%;
     left: 25%;
-    padding: 45px 25px 45px 45px;
+    padding: 60px;
     transition: all 0.5s, top 0.7s;
 }
 
@@ -101,8 +101,12 @@ html, body {
     width: 45%;
     top: 50%;
     left: 50%;
-    padding: 95px 95px 45px 95px;
+    padding: 120px;
     transition: all 0.5s;
+}
+
+.overview-center .separator {
+    padding: 10px;
 }
 
 .overview-center #name {
@@ -234,8 +238,8 @@ html, body {
 
 #contact {
     position: absolute;
-    left: 45px;
-    bottom: 25px;
+    left: 60px;
+    bottom: 30px;
     display: flex;
     gap: 15px;
 }
@@ -289,6 +293,24 @@ html, body {
     gap: 5px;
 }
 
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30vw;
+    gap: 90px;
+}
+
+.columns > div > div:first-of-type {
+    margin-top: 12px;
+}
+
+.columns > div > div {
+    position: relative;
+    margin-top: 3px;
+    font-size: 0.9em;
+    color: #606a72;
+}
+
 span {
     font-weight: 600;
     color: #f9fafc;
@@ -310,11 +332,15 @@ hr {
 }
 
 .first {
-    transition: all 0.5s 0.1s;
+    transition: all 0.3s 0.1s;
 }
 
 .second {
-    transition: all 0.5s 0.3s;
+    transition: all 0.3s 0.25s;
+}
+
+.third {
+    transition: all 0.3s 0.4s;
 }
 
 .card .separator {
