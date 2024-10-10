@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #dce9f4;
+    --primary-color: #fff;
     --secondary-color: #35454f;
 }
 
@@ -25,7 +25,6 @@ html, body {
     padding: 0;
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
     font-style: normal;
     scroll-behavior: smooth;
     background-color: var(--primary-color);
@@ -48,21 +47,6 @@ html, body {
     white-space: nowrap;
 }
 
-#overview.overview-bottom {
-    border-radius: 0;
-    box-shadow: none;
-    background-color: #d3e1ef;
-    border-radius: 0;
-    width: 100%;
-    left: 50%;
-    top: 100%;
-    transition: all 0.5s;
-}
-
-.overview-bottom .separator {
-    padding: 10px;
-}
-
 .overview-left {
     width: 30%;
     top: 25%;
@@ -73,12 +57,13 @@ html, body {
 
 #scrollbar {
     position: fixed;
-    border-style: solid;
+    background-color: #606a72;
+    /* border-style: solid;
     border-width: 0 1px 0 1px;
-    border-color: #606a72;
+    border-color: #606a72; */
     top: 20%;
     left: 25%;
-    width: 12px;
+    width: 1px;
     height: 60%;
     transition: all 1.2s;
 }
@@ -137,15 +122,26 @@ html, body {
 }
 
 #scroll-down {
-    margin: 50px;
+    position: absolute;
+    /* margin: 50px; */
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #919eaa;
     text-decoration: none;
     font-size: 0.8em;
     transition: all 0.15s;
 }
 
-#scroll-down:hover {
-    color: #7c8a96;
+#scroll-down path {
+    fill: none;
+    stroke: #7c8a96;
+    stroke-width: 1px;
+    transition: all 0.15s;
+}
+
+#scroll-down:hover path {
+    stroke: #222e34;
     /* transition: all 0.15s; */
 }
 
@@ -157,6 +153,7 @@ html, body {
     margin: -2px;
     height: 100%;
     width: 100%;
+    z-index: 999;
     transition: all 0.15s;
 }
 
@@ -169,34 +166,32 @@ html, body {
     position: relative;
     opacity: 0;
     color: #222e34;
-    background-color: #d3e1ef;
+    background-color: #f9fafc;
     box-shadow: 1px 1px 3px #7c8a96;
     border-radius: 15px;
     width: 30vw;
-    padding: 65px;
-    margin: 30px 45px 30px auto;
+    padding: 90px;
+    margin: 60px 45px 60px auto;
     overflow: hidden;
     transition: all 0.5s;
 }
 
 .card-visible {
-    margin: 30px 95px 30px auto;
+    margin: 60px 95px 60px auto;
     opacity: 1;
 }
 
 .card-content {
-    color: var(--secondary-color);
     position: relative;
+    color: var(--secondary-color);
     width: 30vw;
-    /* width: 70%; */
-    transition: all 0.1s 0.1s;
 }
-    
+
 .reveal {
     position: absolute;
     background-color: var(--primary-color);
     top: 0;
-    margin: -65px;
+    margin: -90px;
     margin-top: 0;
     height: 100%;
     width: 100%;
@@ -205,7 +200,7 @@ html, body {
 }
 
 .card:hover {
-    width: 35%;
+    width: 35vw;
 }
 
 .card:hover .reveal {
@@ -213,9 +208,29 @@ html, body {
     margin-right: 100%;
 }
 
-/* .card:hover .card-content {
-    color: var(--primary-color);
-} */
+.card-header {
+    position: absolute;
+    color: #606a72;
+    word-spacing: 4px;
+    font-size: 1.2em;
+    transform: rotate(90deg) translate(-50%, -50%);
+    transform-origin: top left;
+    top: 50%;
+    left: 94%;
+    text-wrap: nowrap;
+    opacity: 0;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #606a7200;
+    padding-bottom: 6px;
+    transition: all 0.5s, border 0.5s 0.2s;
+}
+
+.card:hover .card-header {
+    opacity: 1;
+    border-color: #606a72;
+    left: 93%;
+}
 
 #contact {
     position: absolute;
@@ -231,11 +246,12 @@ html, body {
 }
 
 #contact img {
+    opacity: 0.8;
     transition: all 0.15s;
 }
 
 #contact img:hover {
-    opacity: 0.3;
+    opacity: 1;
 }
 
 .hidden {
@@ -249,7 +265,70 @@ html, body {
     width: 100%;
 }
 
+.card h2 {
+    display: inline;
+    position: relative;
+    font-weight: 400;
+    font-size: 1em;
+    margin: 0;
+}
+
+.date {
+    position: relative;
+    color: #606a72;
+    margin-top: 15px;
+    word-spacing: 2px;
+    font-size: 0.9em;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    width: 30vw;
+    gap: 5px;
+}
+
+span {
+    font-weight: 600;
+    color: #f9fafc;
+    background-color: #52a0b0;
+    padding: 0 4px 0 4px;
+    opacity: 0.6;
+    border-radius: 2px;
+    cursor: default;
+    transition: all 0.15s;
+}
+
+hr {
+    position: absolute;
+    border: none;
+    background-color: #606a72;
+    height: 1px;
+    width: 0;
+    margin: 6px 0 0 0;
+}
+
+.first {
+    transition: all 0.5s 0.1s;
+}
+
+.second {
+    transition: all 0.5s 0.3s;
+}
+
+.card .separator {
+    padding: 25px;
+}
+
+.card:hover hr {
+    width: 100%;
+}
+
+span:hover {
+    opacity: 1;
+}
+
 h1 {
     font-family: "Arvo", serif;
-    
 }
