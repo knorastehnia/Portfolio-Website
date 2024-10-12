@@ -1,47 +1,24 @@
-const overview = document.querySelector("#overview");
-const scroll_button = document.querySelector("#scroll-down");
-const scrollbar = document.querySelector("#scrollbar");
-const concealer = document.querySelector(".concealer");
+const overview = document.querySelector(".overview");
+const overview_left = document.querySelector(".overview-left");
 const cards = document.querySelectorAll(".card");
 
+window.onscroll = (event) => {
+    // console.log(window.scrollY, window.innerHeight)
+    // let scroll_length = window.scrollY / document.body.scrollHeight * 100 + 10 + '%';
 
-window.onscroll = function (e) {
-    let scroll_length = window.scrollY / document.body.scrollHeight*100 + 10 + '%';
-
-    if (window.scrollY > 220) {
-        overview.classList.add("overview-left");
-        overview.classList.remove("overview-center");
-
-        scroll_button.classList.add("hidden");
-
-        concealer.classList.add("hidden");
-        scrollbar.classList.remove("hidden");
-
-        overview.style.top = scroll_length;
+    if (window.scrollY > window.innerHeight * 2/3) {
+        overview.classList.add("hidden");
+        overview_left.classList.remove("hidden");
     } else {
-        overview.classList.add("overview-center");
-        overview.classList.remove("overview-left");
-
-        scroll_button.classList.remove("hidden");
-
-        concealer.classList.remove("hidden");
-        scrollbar.classList.add("hidden");
-
-        overview.style.top = "50%";
-    }
-
-    if (document.body.scrollHeight - scrollY < 1200) {
-        overview.classList.add("overview-bottom");
-        overview.style.top = "80%";
-    } else {
-        overview.classList.remove("overview-bottom")
+        overview.classList.remove("hidden");
+        overview_left.classList.add("hidden");
     }
 
     cards.forEach(card => {
-        if (card.getBoundingClientRect().y < 600) {
-            card.classList.add("card-visible");
+        if (card.getBoundingClientRect().y < window.innerHeight * 2/3) {
+            card.classList.remove("hidden");
         } else {
-            card.classList.remove("card-visible");
+            card.classList.add("hidden");
         }
     });
 }
