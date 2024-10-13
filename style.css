@@ -31,9 +31,11 @@ html, body {
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    /* font-size: 0.97em; */
     color: var(--neutral-4);
     scroll-behavior: smooth;
     background-color: var(--neutral-1);
+    overflow-x: clip;
 }
 
 .overview-bg {
@@ -46,7 +48,9 @@ html, body {
 
 .main-bg {
     display: grid;
-    grid-template-columns: 40vw 60vw;
+    margin: 0 12vw 0 12vw;
+    grid-template-columns: 30% 70%;
+    /* grid-template-columns: 40% 60%; */
 }
 
 .overview {
@@ -67,6 +71,7 @@ html, body {
 .name {
     color: var(--neutral-1);
     font-weight: 800;
+    font-size: 2em;
     margin: 0;
     width: 100%;
 }
@@ -74,29 +79,31 @@ html, body {
 .title {
     color: var(--neutral-2);
     font-weight: 300;
+    font-size: 1.5em;
     margin: 0;
     width: 100%;
 }
 
 .overview-left {
     position: sticky;
-    width: 30vw;
-    top: 25vh;
-    left: 10vw;
-    height: 50vh;
+    width: 26vw;
+    top: 15vh;
+    /* height: 25vh; */
     transition: all 0.5s;
-}
-
-.overview-left.hidden {
-    left: 7vw;
 }
 
 .overview-left .name {
     color: var(--neutral-4);
+    font-size: 3em;
+    margin-bottom: 15px;
+    line-height: 1em;
 }
 
 .overview-left .title {
     color: var(--neutral-3);
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    margin-left: 3px;
 }
 
 /* .overview-center {
@@ -148,21 +155,26 @@ html, body {
 }
 
 .separator {
-    padding: 40px;
+    padding: 60px;
     transition: all 0.5s;
 }
 
+.link {
+    display: block;
+    text-align: right;
+    margin: 0 0 60px auto;
+    width: 40vw;
+    white-space: nowrap;
+}
+
 .link a {
-    display: flex;
-    width: 600px;
-    margin: 0 12vw 0 auto;
+    display: inline-block;
     padding: 15px;
+    margin-right: 2vw;
     color: var(--neutral-4);
-    flex-direction: row-reverse;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1em;
-    gap: 30px;
 }
 
 .link div {
@@ -172,37 +184,38 @@ html, body {
 .link hr {
     display: inline-block;
     background-color: var(--neutral-4);
-    margin: auto 0 auto 0;
+    margin: 5px;
     height: 0.8px;
     border: none;
-    width: 260px;
+    width: 15vw;
     transition: all 0.4s;
 }
 
 .link a:hover hr {
-    width: 320px;
+    width: 18vw;
 }
 
 .card {
     position: relative;
     opacity: 1;
     background-color: var(--neutral-2);
-    box-shadow: 0.8px 0.8px 3px var(--neutral-3);
+    box-shadow: 0.4px 0.4px 2px var(--neutral-4);
     border-radius: 15px;
-    width: 30vw;
+    margin-left: auto;
+    width: 26vw;
     padding: 90px;
-    margin: 60px 10vw 60px auto;
+    margin-bottom: 60px;
     overflow: hidden;
     transition: all 0.5s;
 }
 
 .card.hidden {
-    margin: 60px 7vw 60px auto;
+    margin-right: -1.5vw;
 }
 
 .card-content {
     position: relative;
-    width: 30vw;
+    width: 26vw;
 }
 
 .reveal {
@@ -217,7 +230,7 @@ html, body {
 }
 
 .card:hover {
-    width: 35vw;
+    width: 27.5vw;
 }
 
 .card:hover .reveal {
@@ -250,9 +263,10 @@ html, body {
 }
 
 .contact {
-    position: absolute;
+    /* position: absolute; */
     /* left: 60px; */
-    top: 100%;
+    /* top: 100%; */
+    /* margin-top: 50px; */
     display: flex;
     gap: 15px;
 }
@@ -302,15 +316,15 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     margin-top: 15px;
-    width: 30vw;
+    width: 26vw;
     gap: 5px;
 }
 
 .columns {
     display: flex;
     flex-wrap: wrap;
-    width: 30vw;
-    gap: 90px;
+    width: 26vw;
+    gap: 5vw;
 }
 
 .columns > div > div:first-of-type {

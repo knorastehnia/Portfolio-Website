@@ -2,23 +2,33 @@ const overview = document.querySelector(".overview");
 const overview_left = document.querySelector(".overview-left");
 const cards = document.querySelectorAll(".card");
 
+window.onload = (event) => {
+    if (window.scrollY <= window.innerHeight * 0.5) {
+        setTimeout(() => {
+            overview.classList.remove("hidden");
+        }, 400);
+    }
+}
+
 window.onscroll = (event) => {
     // console.log(window.scrollY, window.innerHeight)
     // let scroll_length = window.scrollY / document.body.scrollHeight * 100 + 10 + '%';
 
-    if (window.scrollY > window.innerHeight * 2/3) {
+    if (window.scrollY > window.innerHeight * 0.5) {
         overview.classList.add("hidden");
         overview_left.classList.remove("hidden");
+        cards[0].classList.remove("hidden");
     } else {
         overview.classList.remove("hidden");
         overview_left.classList.add("hidden");
+        cards[0].classList.add("hidden");
     }
 
-    cards.forEach(card => {
-        if (card.getBoundingClientRect().y < window.innerHeight * 2/3) {
-            card.classList.remove("hidden");
+    for (let i = 1; i < cards.length; i++) {
+        if (cards[i].getBoundingClientRect().y < window.innerHeight * 0.8) {
+            cards[i].classList.remove("hidden");
         } else {
-            card.classList.add("hidden");
+            cards[i].classList.add("hidden");
         }
-    });
+    }
 }
