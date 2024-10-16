@@ -11,9 +11,6 @@ window.onload = (event) => {
 }
 
 window.onscroll = (event) => {
-    // console.log(window.scrollY, window.innerHeight)
-    // let scroll_length = window.scrollY / document.body.scrollHeight * 100 + 10 + '%';
-
     if (window.scrollY > window.innerHeight * 0.5) {
         overview.classList.add("hidden");
         overview_left.classList.remove("hidden");

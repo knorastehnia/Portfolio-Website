@@ -31,7 +31,6 @@ html, body {
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    /* font-size: 0.97em; */
     color: var(--neutral-4);
     scroll-behavior: smooth;
     background-color: var(--neutral-1);
@@ -50,14 +49,11 @@ html, body {
     display: grid;
     margin: 0 12vw 0 12vw;
     grid-template-columns: 30% 70%;
-    /* grid-template-columns: 40% 60%; */
 }
 
 .overview {
-    /* position: fixed; */
     position: sticky;
     text-align: center;
-    /* box-shadow: 0.8px 0.8px 3px var(--neutral-3); */
     transform: translate(-50%, -50%);
     width: 45vw;
     top: 50vh;
@@ -87,8 +83,7 @@ html, body {
 .overview-left {
     position: sticky;
     width: 26vw;
-    top: 15vh;
-    /* height: 25vh; */
+    top: 20vh;
     transition: all 0.5s;
 }
 
@@ -96,6 +91,7 @@ html, body {
     color: var(--neutral-4);
     font-size: 3em;
     margin-bottom: 15px;
+    margin-left: -3px;
     line-height: 1em;
 }
 
@@ -103,36 +99,7 @@ html, body {
     color: var(--neutral-3);
     font-size: 1.5em;
     margin-bottom: 25px;
-    margin-left: 3px;
 }
-
-/* .overview-center {
-    width: 45%;
-    top: 50%;
-    left: 50%;
-    padding: 120px;
-    transition: all 0.5s;
-}
-
-.overview-center .separator {
-    padding: 10px;
-}
-
-.overview-center #name {
-    margin: 0;
-    width: 100%;
-    font-size: calc(0.5em + 2cqw);
-    font-weight: 800;
-    transition: width 0.9s, font-size 0.5s;
-}
-
-.overview-center #title {
-    margin: 0;
-    width: 100%;
-    font-size: calc(0.5em + 1.6cqw);
-    font-weight: 300;
-    transition: width 0.85s, font-size 0.5s;
-} */
 
 .scroll-down {
     position: absolute;
@@ -230,7 +197,7 @@ html, body {
 }
 
 .card:hover {
-    width: 27.5vw;
+    width: 28vw;
 }
 
 .card:hover .reveal {
@@ -241,13 +208,11 @@ html, body {
 .card-header {
     position: absolute;
     color: var(--neutral-3);
-    word-spacing: 4px;
     font-size: 1.2em;
     transform: rotate(90deg) translate(-50%, -50%);
     transform-origin: top left;
     top: 50%;
     left: 94%;
-    text-wrap: nowrap;
     opacity: 0;
     border-bottom: solid;
     border-width: 0.8px;
@@ -263,10 +228,6 @@ html, body {
 }
 
 .contact {
-    /* position: absolute; */
-    /* left: 60px; */
-    /* top: 100%; */
-    /* margin-top: 50px; */
     display: flex;
     gap: 15px;
 }
