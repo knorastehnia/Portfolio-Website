@@ -1,11 +1,11 @@
 :root {
-    --primary-1: hsl(190, 37%, 51%);
+    --primary-1: hsl(216, 46%, 57%);
     --neutral-1: hsl(200, 20%, 100%);
-    --neutral-2: hsl(200, 20%, 98%);
+    --neutral-2: hsl(200, 20%, 97%);
     --neutral-3: hsl(200, 10%, 54%);
     --neutral-4: hsl(200, 20%, 25%);
-    --support-1: hsl(166, 56%, 38%);
-    --support-2: hsl(222, 39%, 61%);
+    --support-1: hsl(166, 51%, 34%);
+    --support-2: hsl(224, 36%, 56%);
 }
 
 ::selection {
@@ -47,8 +47,8 @@ html, body {
 
 .main-bg {
     display: grid;
-    margin: 0 12vw 0 12vw;
-    grid-template-columns: 30% 70%;
+    margin: 0 14vw 0 14vw;
+    grid-template-columns: 50% 50%;
 }
 
 .overview {
@@ -83,7 +83,7 @@ html, body {
 .overview-left {
     position: sticky;
     width: 26vw;
-    top: 20vh;
+    top: 15vh;
     transition: all 0.5s;
 }
 
@@ -129,7 +129,7 @@ html, body {
 .link {
     display: block;
     text-align: right;
-    margin: 0 0 60px auto;
+    margin: 0 0 90px auto;
     width: 40vw;
     white-space: nowrap;
 }
@@ -166,18 +166,14 @@ html, body {
     position: relative;
     opacity: 1;
     background-color: var(--neutral-2);
-    box-shadow: 0.4px 0.4px 2px var(--neutral-4);
-    border-radius: 15px;
-    margin-left: auto;
+    box-shadow: 24px 24px 20px var(--neutral-2);
+    border-radius: 25px;
+    margin-right: auto;
     width: 26vw;
     padding: 90px;
-    margin-bottom: 60px;
+    margin-bottom: 90px;
     overflow: hidden;
     transition: all 0.5s;
-}
-
-.card.hidden {
-    margin-right: -1.5vw;
 }
 
 .card-content {
@@ -202,7 +198,7 @@ html, body {
 
 .card:hover .reveal {
     width: 0;
-    margin-right: 100%;
+    margin-left: 100%;
 }
 
 .card-header {
@@ -276,7 +272,7 @@ html, body {
 .skills {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 15px;
+    margin-top: 20px;
     width: 26vw;
     gap: 5px;
 }
@@ -299,13 +295,18 @@ html, body {
     color: var(--neutral-3);
 }
 
-span {
+b {
     font-weight: 600;
+}
+
+span {
+    /* font-weight: 600; */
+    /* font-size: 0.9em; */
     color: var(--neutral-2);
     background-color: var(--primary-1);
-    padding: 0 4px 0 4px;
+    padding: 4px 10px 4px 10px;
     opacity: 0.6;
-    border-radius: 2px;
+    border-radius: 15px;
     cursor: default;
     transition: all 0.15s;
 }
