@@ -22,7 +22,7 @@ window.onscroll = (event) => {
     }
 
     for (let i = 1; i < cards.length; i++) {
-        if (cards[i].getBoundingClientRect().y < window.innerHeight * 0.8) {
+        if (cards[i].getBoundingClientRect().y < window.innerHeight * 0.7) {
             cards[i].classList.remove("hidden");
         } else {
             cards[i].classList.add("hidden");

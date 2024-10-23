@@ -1,11 +1,11 @@
 :root {
-    --primary-1: hsl(216, 46%, 57%);
+    --primary-1: hsl(216, 51%, 60%);
     --neutral-1: hsl(200, 20%, 100%);
     --neutral-2: hsl(200, 20%, 97%);
     --neutral-3: hsl(200, 10%, 54%);
     --neutral-4: hsl(200, 20%, 25%);
-    --support-1: hsl(166, 51%, 34%);
-    --support-2: hsl(224, 36%, 56%);
+    --support-1: hsl(166, 47%, 43%);
+    --support-2: hsl(224, 49%, 66%);
 }
 
 ::selection {
@@ -42,7 +42,6 @@ html, body {
     background: linear-gradient(50deg, var(--support-2) 0%, var(--primary-1) 35%, var(--support-1) 100%);
     height: 100%;
     width: 100%;
-    z-index: 10;
 }
 
 .main-bg {
@@ -54,13 +53,13 @@ html, body {
 .overview {
     position: sticky;
     text-align: center;
-    transform: translate(-50%, -50%);
-    width: 45vw;
-    top: 50vh;
-    left: 50vw;
+    /* transform: translate(-50%, -50%); */
+    width: fit-content;
+    margin: 0 auto 60px auto;
+    top: 40vh;
+    /* left: 50vw; */
     height: 20vh;
     white-space: nowrap;
-    z-index: 8;
     transition: all 0.5s;
 }
 
@@ -158,6 +157,10 @@ html, body {
     transition: all 0.4s;
 }
 
+.link hr:first-of-type {
+    display: none;
+}
+
 .link a:hover hr {
     width: 18vw;
 }
@@ -168,12 +171,15 @@ html, body {
     background-color: var(--neutral-2);
     box-shadow: 24px 24px 20px var(--neutral-2);
     border-radius: 25px;
-    margin-right: auto;
     width: 26vw;
     padding: 90px;
-    margin-bottom: 90px;
+    margin: 0 0 90px auto;
     overflow: hidden;
     transition: all 0.5s;
+}
+
+.card.hidden {
+    margin-top: -30px;
 }
 
 .card-content {
@@ -214,7 +220,7 @@ html, body {
     border-width: 0.8px;
     border-color: hsla(0, 0%, 0%, 0);
     padding-bottom: 6px;
-    transition: all 0.5s, border 0.5s 0.2s;
+    transition: all 0.5s, border 0.5s 0.2s, transform 0s;
 }
 
 .card:hover .card-header {
@@ -253,12 +259,19 @@ html, body {
     width: 100%;
 }
 
-.card h2 {
+.card a, .card h2 {
+    color: var(--neutral-4);
     display: inline;
     position: relative;
+    text-decoration: none;
     font-weight: 400;
     font-size: 1em;
     margin: 0;
+    transition: all 0.5s;
+}
+
+.card a:hover {
+    margin-left: 10px;
 }
 
 .date {
@@ -346,4 +359,102 @@ span:hover {
 
 h1 {
     font-family: "Arvo", serif;
+}
+
+@media screen and (max-width: 1024px) {
+    .overview-left {
+        display: none;
+    }
+
+    .main-bg {
+        display: block;
+        margin: 0;
+    }
+
+    .main-right {
+        width: 100%;
+    }
+
+    .card {
+        width: 50vw;
+        margin: 0 auto 90px auto;
+        box-shadow: 24px 24px 40px var(--neutral-2), 0px 0px 40px var(--neutral-2);
+    }
+
+    .card:hover {
+        width: 50vw;
+    }
+
+    .card-content {
+        width: 50vw;
+        margin: 0 auto 0 auto;
+    }
+
+    .columns {
+        width: 50vw;
+    }
+
+    .skills {
+        width: 50vw;
+    }
+
+    .link {
+        margin: 0 auto 90px auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    .link a {
+        margin: 0 auto 0 auto;
+    }
+
+    .link hr {
+        width: 25vw;
+    }
+
+    .link hr:first-of-type {
+        display: inline-block;
+    }
+
+    .card hr {
+        width: 100%;
+    }
+
+    .card-header {
+        opacity: 1;
+        position: static;
+        transform: rotate(0);
+        border: none;
+        margin-bottom: 30px;
+        left: 93%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .card {
+        background-color: var(--neutral-1);
+        box-shadow: none;
+        width: 90vw;
+        padding: 45px;
+        /* margin-bottom: 45px; */
+        border-radius: 0;
+    }
+
+    .card-content {
+        width: 80vw;
+        margin-left: 0;
+    }
+
+    .card:hover {
+        width: 100vw;
+    }
+
+    .skills {
+        width: 90vw;
+    }
+
+    .columns {
+        width: 90vw;
+        gap: 8vw;
+    }
 }
