@@ -1,16 +1,16 @@
 :root {
-    --primary-1: hsl(216, 51%, 60%);
-    --neutral-1: hsl(200, 20%, 100%);
-    --neutral-2: hsl(200, 20%, 97%);
-    --neutral-3: hsl(200, 10%, 54%);
-    --neutral-4: hsl(200, 20%, 25%);
-    --support-1: hsl(166, 47%, 43%);
-    --support-2: hsl(224, 49%, 66%);
+    --primary-1: hsl(239, 59%, 60%);
+    --neutral-1: hsl(200, 0%, 90%);
+    --neutral-2: hsl(200, 0%, 80%);
+    --neutral-3: hsl(200, 0%, 5%);
+    --neutral-4: hsl(200, 0%, 7%);
+    --support-1: hsl(255, 36%, 47%);
+    --support-2: hsl(215, 50%, 57%);
 }
 
 ::selection {
-    background-color: var(--neutral-4);
-    color: var(--neutral-1);
+    background-color: var(--neutral-1);
+    color: var(--primary-1);
 }
 
 @font-face {
@@ -31,23 +31,33 @@ html, body {
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    color: var(--neutral-4);
+    color: var(--neutral-1);
     scroll-behavior: smooth;
-    background-color: var(--neutral-1);
+    /* background-color: var(--neutral-4); */
     overflow-x: clip;
+}
+
+.background {
+    position: fixed;
+    background: linear-gradient(50deg, var(--support-2) 0%, var(--primary-1) 35%, var(--support-1) 100%);
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
 
 .overview-bg {
     position: relative;
-    background: linear-gradient(50deg, var(--support-2) 0%, var(--primary-1) 35%, var(--support-1) 100%);
+    /* background-color: var(--neutral-4); */
     height: 100%;
     width: 100%;
+    /* z-index: -2; */
 }
 
 .main-bg {
     display: grid;
     margin: 0 14vw 0 14vw;
-    grid-template-columns: 50% 50%;
+    /* grid-template-columns: 50% 50%; */
+    grid-template-columns: 40% 60%;
 }
 
 .overview {
@@ -67,15 +77,15 @@ html, body {
     color: var(--neutral-1);
     font-weight: 800;
     font-size: 2em;
-    margin: 0;
+    margin: 0 0 5px 0;
     width: 100%;
 }
 
 .title {
-    color: var(--neutral-2);
+    color: var(--neutral-1);
     font-weight: 300;
     font-size: 1.5em;
-    margin: 0;
+    margin: 0 0 45px 0;
     width: 100%;
 }
 
@@ -87,7 +97,6 @@ html, body {
 }
 
 .overview-left .name {
-    color: var(--neutral-4);
     font-size: 3em;
     margin-bottom: 15px;
     margin-left: -3px;
@@ -95,16 +104,15 @@ html, body {
 }
 
 .overview-left .title {
-    color: var(--neutral-3);
-    font-size: 1.5em;
+    color: var(--neutral-2);
     margin-bottom: 25px;
 }
 
 .scroll-down {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* position: absolute; */
+    /* top: 100%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
     transition: all 0.15s;
 }
 
@@ -127,19 +135,21 @@ html, body {
 
 .link {
     display: block;
-    text-align: right;
-    margin: 0 0 90px auto;
-    width: 40vw;
+    text-align: center;
+    margin: 0 auto 90px auto;
+    width: 100%;
     white-space: nowrap;
 }
 
 .link a {
     display: inline-block;
-    padding: 15px;
-    margin-right: 2vw;
-    color: var(--neutral-4);
+    padding: 15px 0 15px 0;
+    /* text-align: center; */
+    margin: 0 auto 0 auto;
+    width: 100%;
+    color: var(--neutral-1);
     text-decoration: none;
-    font-weight: 600;
+    /* font-weight: 600; */
     font-size: 1.1em;
 }
 
@@ -149,31 +159,30 @@ html, body {
 
 .link hr {
     display: inline-block;
-    background-color: var(--neutral-4);
+    background-color: var(--neutral-2);
     margin: 5px;
     height: 0.8px;
     border: none;
-    width: 15vw;
+    width: 25%;
     transition: all 0.4s;
 }
 
-.link hr:first-of-type {
-    display: none;
-}
-
 .link a:hover hr {
-    width: 18vw;
+    width: 30%;
 }
 
 .card {
     position: relative;
     opacity: 1;
-    background-color: var(--neutral-2);
-    box-shadow: 24px 24px 20px var(--neutral-2);
-    border-radius: 25px;
-    width: 26vw;
-    padding: 90px;
-    margin: 0 0 90px auto;
+    /* background-color: var(--neutral-4); */
+    /* box-shadow: 24px 24px 30px var(--neutral-3); */
+    /* border-style: solid;
+    border-width: 3px;
+    border-color: var(--primary-1); */
+    /* border-radius: 25px; */
+    width: 90%;
+    /* padding: 45px; */
+    margin: 0 auto 90px auto;
     overflow: hidden;
     transition: all 0.5s;
 }
@@ -184,12 +193,13 @@ html, body {
 
 .card-content {
     position: relative;
-    width: 26vw;
+    padding: 45px;
+    /* width: 60%; */
 }
 
-.reveal {
+/* .reveal {
     position: absolute;
-    background-color: var(--neutral-1);
+    background-color: var(--neutral-4);
     top: 0;
     margin: -90px;
     margin-top: 0;
@@ -205,32 +215,28 @@ html, body {
 .card:hover .reveal {
     width: 0;
     margin-left: 100%;
-}
+} */
 
 .card-header {
-    position: absolute;
-    color: var(--neutral-3);
-    font-size: 1.2em;
-    transform: rotate(90deg) translate(-50%, -50%);
-    transform-origin: top left;
-    top: 50%;
-    left: 94%;
-    opacity: 0;
-    border-bottom: solid;
-    border-width: 0.8px;
-    border-color: hsla(0, 0%, 0%, 0);
-    padding-bottom: 6px;
-    transition: all 0.5s, border 0.5s 0.2s, transform 0s;
+    position: relative;
+    color: var(--neutral-1);
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    /* border-bottom: solid; */
+    /* border-width: 0.8px; */
+    /* border-color: hsla(0, 0%, 0%, 0); */
 }
 
-.card:hover .card-header {
+/* .card:hover .card-header {
     opacity: 1;
-    border-color: var(--neutral-3);
+    border-color: var(--neutral-1);
     left: 93%;
-}
+} */
 
 .contact {
-    display: flex;
+    /* display: flex; */
+    display: none;
     gap: 15px;
 }
 
@@ -253,14 +259,8 @@ html, body {
     pointer-events: none;
 }
 
-#footer {
-    background-color: var(--neutral-4);
-    height: 100%;
-    width: 100%;
-}
-
 .card a, .card h2 {
-    color: var(--neutral-4);
+    color: var(--neutral-1);
     display: inline;
     position: relative;
     text-decoration: none;
@@ -276,7 +276,7 @@ html, body {
 
 .date {
     position: relative;
-    color: var(--neutral-3);
+    color: var(--neutral-2);
     margin-top: 15px;
     word-spacing: 2px;
     font-size: 0.9em;
@@ -286,15 +286,15 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
-    width: 26vw;
+    /* width: 26vw; */
     gap: 5px;
 }
 
 .columns {
     display: flex;
     flex-wrap: wrap;
-    width: 26vw;
-    gap: 5vw;
+    /* width: 100%; */
+    gap: 15%;
 }
 
 .columns > div > div:first-of-type {
@@ -305,7 +305,7 @@ html, body {
     position: relative;
     margin-top: 3px;
     font-size: 0.9em;
-    color: var(--neutral-3);
+    color: var(--neutral-2);
 }
 
 b {
@@ -314,12 +314,14 @@ b {
 
 span {
     /* font-weight: 600; */
-    /* font-size: 0.9em; */
-    color: var(--neutral-2);
-    background-color: var(--primary-1);
+    font-size: 0.9em;
+    color: var(--neutral-1);
+    /* background-color: var(--primary-1); */
     padding: 4px 10px 4px 10px;
-    opacity: 0.6;
-    border-radius: 15px;
+    /* opacity: 0.6; */
+    border-style: solid;
+    border-width: 0.8px;
+    border-radius: 25px;
     cursor: default;
     transition: all 0.15s;
 }
@@ -327,7 +329,7 @@ span {
 .card hr {
     position: absolute;
     border: none;
-    background-color: var(--neutral-3);
+    background-color: var(--neutral-1);
     height: 0.8px;
     width: 0;
     margin: 6px 0 0 0;
@@ -353,10 +355,6 @@ span {
     width: 100%;
 }
 
-span:hover {
-    opacity: 1;
-}
-
 h1 {
     font-family: "Arvo", serif;
 }
@@ -378,7 +376,7 @@ h1 {
     .card {
         width: 50vw;
         margin: 0 auto 90px auto;
-        box-shadow: 24px 24px 40px var(--neutral-2), 0px 0px 40px var(--neutral-2);
+        /* box-shadow: 24px 24px 40px var(--neutral-2), 0px 0px 40px var(--neutral-2); */
     }
 
     .card:hover {
@@ -398,24 +396,6 @@ h1 {
         width: 50vw;
     }
 
-    .link {
-        margin: 0 auto 90px auto;
-        text-align: center;
-        width: 100%;
-    }
-
-    .link a {
-        margin: 0 auto 0 auto;
-    }
-
-    .link hr {
-        width: 25vw;
-    }
-
-    .link hr:first-of-type {
-        display: inline-block;
-    }
-
     .card hr {
         width: 100%;
     }
@@ -432,7 +412,7 @@ h1 {
 
 @media screen and (max-width: 640px) {
     .card {
-        background-color: var(--neutral-1);
+        background-color: var(--neutral-4);
         box-shadow: none;
         width: 90vw;
         padding: 45px;
