@@ -66,6 +66,7 @@ nav {
 }
 
 nav a {
+    font-size: 0.9em;
     text-decoration: none;
     letter-spacing: 1px;
     color: var(--neutral-1);
@@ -73,6 +74,7 @@ nav a {
     border-width: 0 0 0.8px 0;
     border-color: hsla(0, 0%, 0%, 0);
     padding-bottom: 5px;
+    align-self: flex-start;
     transition: all 0.5s;
 }
 
@@ -80,12 +82,25 @@ nav a:hover {
     border-color: var(--neutral-1);
 }
 
+.overview-bg nav {
+    position: absolute;
+    flex-direction: row;
+    /* margin: 0 auto 0 auto; */
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    padding: 0;
+    gap: 15px;
+}
+
 .background {
     position: fixed;
+    background-color: var(--primary-1);
     background: linear-gradient(50deg, var(--support-2) 0%, var(--primary-1) 35%, var(--support-1) 100%);
     height: 100%;
     width: 100%;
-    transition: --primary-1 5s;
+    transition: --primary-1 3s;
     z-index: -1;
 }
 
@@ -110,7 +125,7 @@ nav a:hover {
     text-align: center;
     width: fit-content;
     margin: 0 auto 60px auto;
-    top: 40vh;
+    top: 40%;
     height: 20vh;
     white-space: nowrap;
     transition: all 0.5s;
@@ -119,7 +134,7 @@ nav a:hover {
 .name {
     color: var(--neutral-1);
     font-weight: 800;
-    font-size: 2em;
+    font-size: 2.5em;
     margin: 0 0 5px 0;
     width: 100%;
 }
@@ -134,7 +149,8 @@ nav a:hover {
 
 .overview-left {
     position: sticky;
-    top: 15vh;
+    top: 20%;
+    /* transform: translateY(-50%); */
     transition: all 0.5s;
 }
 
@@ -146,7 +162,7 @@ nav a:hover {
 }
 
 .overview-left .title {
-    color: var(--neutral-2);
+    /* color: var(--neutral-2); */
     margin-bottom: 25px;
 }
 

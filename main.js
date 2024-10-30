@@ -18,16 +18,20 @@ window.onload = (event) => {
 }
 
 window.onscroll = (event) => {
-    cards[0].style.marginTop = (window.scrollY / 20).toString() + "px";
+    // cards[0].style.marginTop = (window.scrollY / 20).toString() + "px";
     background.style.setProperty("--primary-1", "hsl(" + (primary_start - (primary_start - primary_end) * (window.scrollY / document.body.scrollHeight)) + ", 60%, 60%)");
 
+    if (window.scrollY > window.innerHeight * 0.7) {
+        navbar.classList.add("hidden");
+    } else {
+        navbar.classList.remove("hidden");
+    }
+
     if (window.scrollY > window.innerHeight * 0.5) {
-        // navbar.classList.add("hidden");
         overview.classList.add("hidden");
         overview_left.classList.remove("hidden");
         cards[0].classList.remove("hidden");
     } else {
-        // navbar.classList.remove("hidden");
         overview.classList.remove("hidden");
         overview_left.classList.add("hidden");
         cards[0].classList.add("hidden");
