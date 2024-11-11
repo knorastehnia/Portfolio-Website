@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karan Norastehnia</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="Icons/favicon.ico">
+    <link rel="icon" href="Images/Moon.svg">
 </head>
 <body>
-    <div class="background"></div>
+    <div class="background">
+        <!-- <div class="day"></div> -->
+
+        <div class="pivot">
+            <div class="night"></div>
+        </div>
+
+        <div class="moon"></div>
+    </div>
     
     <div class="overview-bg">
         <div class="overview hidden">
@@ -20,7 +28,7 @@
                 </svg>
             </a> -->
         </div>
-        <nav>
+        <nav class="top-nav hidden">
             <a href="#background">Background</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
@@ -48,7 +56,7 @@
                     </a>
                 </div>
 
-                <nav>
+                <nav class="main-nav">
                     <a href="#background">Background</a>
                     <a href="#experience">Experience</a>
                     <a href="#skills">Skills</a>
@@ -93,6 +101,13 @@
                         <div class="date">
                             FEB 2024 — Present
                         </div>
+
+                        <p>
+                            Optimized code across various technologies like TypeScript, React, and 
+                            Next.js, improving performance, readability, and maintainability; and 
+                            contributed to the improvement of multiple AI models' coding capabilities.
+                        </p>
+
                         <div class="skills">
                             <span>JavaScript</span>
                             <span>TypeScript</span>
@@ -116,6 +131,13 @@
                         <div class="date">
                             OCT 2023 — JAN 2024
                         </div>
+
+                        <p>
+                            Worked with other student developers to build a comprehensive 
+                            web app while maintaining regular communication with the client
+                            to ensure adherance to requirements.
+                        </p>
+
                         <div class="skills">
                             <span>JavaScript</span>
                             <span>HTML</span>
@@ -162,16 +184,22 @@
                     <div class="card-header">Projects</div>
                     <div>
                         <h2>
-                            Future Project
+                            Whiteboard
                             <hr class="first">
                         </h2>
                         
                         <!-- <div class="date">
                             FEB 2024 — Present
                         </div> -->
+
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores non, aliquam delectus 
+                            harum iste culpa impedit rerum reiciendis modi eligendi officia esse odit recusandae voluptatum ea inventore eum fugit?
+                        </p>
+
                         <div class="skills">
                             <span>TypeScript</span>
-                            <span>Next.js</span>
+                            <span>React</span>
                             <span>SCSS</span>
                         </div>
                     </div>
@@ -187,7 +215,14 @@
                         <!-- <div class="date">
                             FEB 2024 — Present
                         </div> -->
+
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores non, aliquam delectus 
+                            harum iste culpa impedit rerum reiciendis modi eligendi officia esse odit recusandae voluptatum ea inventore eum fugit?
+                        </p>
+
                         <div class="skills">
+                            <span>JavaScript</span>
                             <span>React</span>
                             <span>Tailwind CSS</span>
                             <span>Figma</span>
@@ -205,6 +240,12 @@
                         <!-- <div class="date">
                             OCT 2023 — JAN 2024
                         </div> -->
+
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maiores non, aliquam delectus 
+                            harum iste culpa impedit rerum reiciendis modi eligendi officia esse odit recusandae voluptatum ea inventore eum fugit?
+                        </p>
+
                         <div class="skills">
                             <span>JavaScript</span>
                             <span>HTML</span>
@@ -218,6 +259,8 @@
 
     <div class="separator"></div>
     <!-- <div id="footer"></div> -->
+
+    <div id="cursor"></div>
 
     <script src="main.js"></script>
 </body>

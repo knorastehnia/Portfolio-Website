@@ -3,9 +3,10 @@
     --neutral-2: hsl(200, 0%, 80%);
     --neutral-3: hsl(200, 0%, 5%);
     --neutral-4: hsl(200, 0%, 7%);
+    --primary-1: hsl(224, 28%, 13%);
 }
 
-@property --primary-1 {
+/* @property --primary-1 {
     syntax: "<color>";
     inherits: false;
     initial-value: hsl(10, 60%, 60%);
@@ -21,11 +22,11 @@
     syntax: "<color>";
     inherits: false;
     initial-value: hsl(20, 50%, 60%);
-}
+} */
 
 ::selection {
     background-color: var(--neutral-1);
-    color: var(--support-1);
+    color: var(--primary-1);
 }
 
 @font-face {
@@ -49,6 +50,31 @@ html, body {
     color: var(--neutral-1);
     scroll-behavior: smooth;
     overflow-x: clip;
+    cursor: none;
+}
+
+#cursor {
+    position: fixed;
+    border-radius: 50%;
+    border: 2px solid var(--neutral-1);
+    padding: 15px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: padding 0.2s;
+}
+
+#cursor.hover {
+    padding: 25px;
+}
+
+a {
+    cursor: none;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--primary-1);
+    transition: outline 0s !important;
+    outline-offset: 5px;
 }
 
 nav {
@@ -62,7 +88,7 @@ nav {
     padding-left: 15px;
     width: fit-content;
     z-index: 999;
-    transition: all 0.25s;
+    transition: all 0.5s;
 }
 
 nav a {
@@ -70,22 +96,47 @@ nav a {
     text-decoration: none;
     letter-spacing: 1px;
     color: var(--neutral-1);
-    border-style: solid;
-    border-width: 0 0 0.8px 0;
-    border-color: hsla(0, 0%, 0%, 0);
-    padding-bottom: 5px;
+    /* border-style: solid; */
+    /* border-width: 0 0 0.8px 0; */
+    /* border-color: hsla(0, 0%, 0%, 0); */
+    /* padding-bottom: 5px; */
+    padding: 5px;
     align-self: flex-start;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
-nav a:hover {
-    border-color: var(--neutral-1);
+nav a::after, nav a::before {
+    content: "";
+    display: block;
+    background-color: var(--neutral-1);
+    /* padding: 25px; */
+    height: 0.8px;
+    width: 0;
+    /* margin-top: 5px; */
+    transform: translateY(8px);
+    transition: all 0.3s;
+}
+
+nav a::before {
+    transform: translateY(-6px);
+    transition: all 0.3s 0.2s;
+}
+
+nav.main-nav a::before {
+    display: none;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 .overview-bg nav {
     position: absolute;
     flex-direction: row;
-    /* margin: 0 auto 0 auto; */
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -94,14 +145,104 @@ nav a:hover {
     gap: 15px;
 }
 
+nav.hidden {
+    margin-top: 60px;
+    /* transform: translateY(-30px); */
+}
+
 .background {
     position: fixed;
-    background-color: var(--primary-1);
-    background: linear-gradient(50deg, var(--support-2) 0%, var(--primary-1) 35%, var(--support-1) 100%);
     height: 100%;
     width: 100%;
-    transition: --primary-1 3s;
+    background-color: var(--neutral-4);
     z-index: -1;
+}
+
+.pivot {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 1000px;
+    width: 1px;
+    overflow: visible;
+    /* transition: all 1s; */
+}
+
+.night {
+    background-color: var(--primary-1);
+    /* background-color: var(--neutral-4); */
+    /* background: linear-gradient(to bottom, #0c0919 0%, #0d0e26 56%,#aeadcf 100%);; */
+    background-position: center;
+    height: max(150dvw, 150dvh);
+    width: max(150dvw, 150dvh);
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    /* filter: brightness(0.6); */
+    transition: all 1s;
+    z-index: 10;
+}
+
+.moon {
+    position: fixed;
+    display: none;
+    background-color: var(--primary-1);
+    /* box-shadow: 0 0 300px var(--neutral-2); */
+    border-radius: 50%;
+    background-image: url(Images/Moon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 50px;
+    left: 50px;
+    height: 100px;
+    width: 100px;
+    z-index: 2000;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.star1, .star2 {
+    position: absolute;
+    padding: 0.8px;
+    background-color: var(--neutral-1);
+    box-shadow: 0 0 4px var(--neutral-1);
+    border-radius: 50%;
+    animation: blink ease-in-out infinite;
+    animation-duration: 2s;
+}
+
+.star2 {
+    background-color: hsl(210, 50%, 70%);
+    box-shadow: 0 0 4px hsl(210, 50%, 80%);
+}
+
+.star3 {
+    /* padding: 20px; */
+    background-color: hsl(265, 33%, 33%);
+    box-shadow: 0 0 4px hsl(210, 50%, 80%);
+}
+
+.day {
+    background: linear-gradient(184deg, var(--support-1), var(--primary-1), var(--support-2));
+    /* background: linear-gradient(to bottom, #524681 0%,#b26353 56%,#bb6543 71%,#ab6a4c 100%); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    height: 100%;
+    width: 100%;
+
+    /* height: max(150vw, 150vh);
+    width: max(150vw, 150vh); */
+
+    /* transform: translate(-50%, -50%); */
 }
 
 .overview-bg {
@@ -124,7 +265,7 @@ nav a:hover {
     position: sticky;
     text-align: center;
     width: fit-content;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 90px auto;
     top: 40%;
     height: 20vh;
     white-space: nowrap;
@@ -137,14 +278,17 @@ nav a:hover {
     font-size: 2.5em;
     margin: 0 0 5px 0;
     width: 100%;
+    /* mix-blend-mode: difference; */
 }
 
 .title {
+    /* background-color: var(--neutral-1); */
     color: var(--neutral-1);
     font-weight: 300;
     font-size: 1.5em;
-    margin: 0 0 45px 0;
-    width: 100%;
+    margin: 0 auto 45px auto;
+    /* padding: 5px; */
+    width: fit-content;
 }
 
 .overview-left {
@@ -163,7 +307,7 @@ nav a:hover {
 
 .overview-left .title {
     /* color: var(--neutral-2); */
-    margin-bottom: 25px;
+    margin: 0 0 25px 0;
 }
 
 .scroll-down {
@@ -207,6 +351,7 @@ nav a:hover {
 
 .link div {
     display: inline-block;
+    pointer-events: none;
 }
 
 .link hr {
@@ -217,6 +362,7 @@ nav a:hover {
     border: none;
     width: 25%;
     transition: all 0.4s;
+    pointer-events: none;
 }
 
 .link a:hover hr {
@@ -230,10 +376,14 @@ nav a:hover {
     margin: 0 auto 90px auto;
     overflow: hidden;
     transition: all 0.5s;
+
+    /* border: solid var(--neutral-1);
+    border-width: 0 0 0 0.8px; */
 }
 
 .card.hidden {
-    margin-top: -30px;
+    /* margin-top: -30px; */
+    transform: translateY(-30px);
 }
 
 .card-content {
@@ -261,10 +411,11 @@ nav a:hover {
 
 .contact img {
     opacity: 0.7;
+    pointer-events: none;
     transition: all 0.15s;
 }
 
-.contact img:hover {
+.contact a:hover img {
     opacity: 1;
 }
 
@@ -284,8 +435,21 @@ nav a:hover {
     transition: all 0.5s;
 }
 
-.card a:hover {
-    margin-left: 10px;
+.card p {
+    font-size: 0.95em;
+    margin: 30px 0 0 0;
+    line-height: 1.7em;
+    /* color: var(--neutral-2); */
+}
+
+.card p:first-of-type {
+    margin: 30px 0 30px 0;
+}
+
+.card a:hover hr {
+    width: 105%;
+    /* margin-left: 10px; */
+    /* letter-spacing: 1px; */
 }
 
 .date {
@@ -293,13 +457,13 @@ nav a:hover {
     color: var(--neutral-2);
     margin-top: 15px;
     word-spacing: 2px;
-    font-size: 0.9em;
+    font-size: 0.95em;
 }
 
 .skills {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin: 30px 0 30px 0;
     gap: 5px;
 }
 
@@ -331,7 +495,6 @@ span {
     border-style: solid;
     border-width: 0.8px;
     border-radius: 25px;
-    cursor: default;
     transition: all 0.15s;
 }
 
@@ -369,6 +532,18 @@ h1 {
 }
 
 @media screen and (max-width: 1024px) {
+    body, html {
+        cursor: default;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    #cursor {
+        display: none;
+    }
+
     .overview-left {
         display: none;
     }
@@ -381,6 +556,18 @@ h1 {
 
     .main-right {
         width: 100%;
+    }
+
+    .name {
+        font-size: 2em;
+    }
+
+    .title {
+        font-size: 1.4em;
+    }
+
+    .columns {
+        gap: 10%;
     }
 
     .card {
