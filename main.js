@@ -31,7 +31,7 @@ window.onload = (event) => {
 
     for (let i = 0; i < 300; i++) {
         let star = night.appendChild(document.createElement("div"));
-        star.classList.add(`star${Math.floor(Math.random() * 3 + 0.9)}`);
+        star.classList.add(`star${Math.floor(Math.random() * 2.5 + 1)}`);
 
         star.style.top = Math.floor(Math.random() * 100) + "%";
         star.style.left = Math.floor(Math.random() * 100) + "%";
@@ -40,7 +40,7 @@ window.onload = (event) => {
 }
 
 window.onscroll = (event) => {
-    let rotation = 10 - (10 * (window.scrollY / document.body.scrollHeight));
+    let rotation = -30 * (window.scrollY / document.body.scrollHeight);
     pivot.style.transform = `rotate(${rotation}deg)`;
     night.style.opacity = 1;
 

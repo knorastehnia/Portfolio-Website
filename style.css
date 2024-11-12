@@ -3,16 +3,16 @@
     --neutral-2: hsl(200, 0%, 80%);
     --neutral-3: hsl(200, 0%, 5%);
     --neutral-4: hsl(200, 0%, 7%);
-    --primary-1: hsl(224, 28%, 13%);
+    /* --primary-1: #181d2a; */
 }
 
-/* @property --primary-1 {
+@property --primary-1 {
     syntax: "<color>";
     inherits: false;
-    initial-value: hsl(10, 60%, 60%);
+    initial-value: hsl(224, 28%, 13%);
 }
 
-@property --support-1 {
+/* @property --support-1 {
     syntax: "<color>";
     inherits: false;
     initial-value: hsl(250, 40%, 50%);
@@ -92,7 +92,7 @@ nav {
 }
 
 nav a {
-    font-size: 0.9em;
+    font-size: 0.95em;
     text-decoration: none;
     letter-spacing: 1px;
     color: var(--neutral-1);
@@ -154,7 +154,7 @@ nav.hidden {
     position: fixed;
     height: 100%;
     width: 100%;
-    background-color: var(--neutral-4);
+    background-color: var(--primary-1);
     z-index: -1;
 }
 
@@ -208,7 +208,7 @@ nav.hidden {
     }
 }
 
-.star1, .star2 {
+.star1, .star2, .star3 {
     position: absolute;
     padding: 0.8px;
     background-color: var(--neutral-1);
@@ -224,9 +224,8 @@ nav.hidden {
 }
 
 .star3 {
-    /* padding: 20px; */
-    background-color: hsl(265, 33%, 33%);
-    box-shadow: 0 0 4px hsl(210, 50%, 80%);
+    background-color: hsl(266, 50%, 70%);
+    box-shadow: 0 0 4px hsl(266, 50%, 80%);
 }
 
 .day {
@@ -308,22 +307,6 @@ nav.hidden {
 .overview-left .title {
     /* color: var(--neutral-2); */
     margin: 0 0 25px 0;
-}
-
-.scroll-down {
-    transition: all 0.15s;
-}
-
-.scroll-down path {
-    fill: none;
-    stroke: var(--neutral-2);
-    opacity: 0.6;
-    stroke-width: 0.8px;
-    transition: all 0.15s;
-}
-
-.scroll-down:hover path {
-    stroke: var(--neutral-4);
 }
 
 .separator {
@@ -419,20 +402,46 @@ nav.hidden {
     opacity: 1;
 }
 
+.contact-alt {
+    display: none;
+    margin: 30px auto 0 auto;
+    justify-content: space-evenly;
+}
+
 .hidden {
     opacity: 0 !important;
     pointer-events: none;
 }
 
-.card a, .card h2 {
-    color: var(--neutral-1);
+.card h2 {
     display: inline;
     position: relative;
-    text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1em;
-    margin: 0;
-    transition: all 0.5s;
+}
+
+.project-header {
+    width: fit-content;
+    font-weight: 500;
+    font-size: 1em;
+    position: relative;
+}
+
+.project-header div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.project-header img {
+    opacity: 0.7;
+    display: block;
+    pointer-events: none;
+    transition: all 0.15s;
+}
+
+.project-header a:hover img {
+    opacity: 1;
 }
 
 .card p {
@@ -444,12 +453,6 @@ nav.hidden {
 
 .card p:first-of-type {
     margin: 30px 0 30px 0;
-}
-
-.card a:hover hr {
-    width: 105%;
-    /* margin-left: 10px; */
-    /* letter-spacing: 1px; */
 }
 
 .date {
@@ -480,7 +483,7 @@ nav.hidden {
 .columns > div > div {
     position: relative;
     margin-top: 3px;
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: var(--neutral-2);
 }
 
@@ -489,7 +492,7 @@ b {
 }
 
 span {
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: var(--neutral-1);
     padding: 4px 10px 4px 10px;
     border-style: solid;
@@ -507,6 +510,10 @@ span {
     margin: 6px 0 0 0;
 }
 
+.card:hover hr {
+    width: 100%;
+}
+
 .first {
     transition: all 0.3s 0.1s;
 }
@@ -521,10 +528,6 @@ span {
 
 .card .separator {
     padding: 25px;
-}
-
-.card:hover hr {
-    width: 100%;
 }
 
 h1 {
@@ -568,6 +571,10 @@ h1 {
 
     .columns {
         gap: 10%;
+    }
+
+    .contact-alt {
+        display: flex;
     }
 
     .card {
