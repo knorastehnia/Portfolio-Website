@@ -10,6 +10,31 @@ const cards_length = cards.length;
 
 const cursor = document.querySelector("#cursor");
 
+function watchForHover() {
+    let lastTouchTime = 0
+  
+    function enableHover() {
+      if (new Date() - lastTouchTime < 500) return
+      document.body.classList.add('enable-hover')
+    }
+  
+    function disableHover() {
+      document.body.classList.remove('enable-hover')
+    }
+  
+    function updateLastTouchTime() {
+      lastTouchTime = new Date()
+    }
+  
+    document.addEventListener('touchstart', updateLastTouchTime, true)
+    document.addEventListener('touchstart', disableHover, true)
+    document.addEventListener('mousemove', enableHover, true)
+  
+    enableHover()
+  }
+  
+  watchForHover()
+
 document.onmousemove = (event) => {
     cursor.style.top = event.clientY + "px";
     cursor.style.left = event.clientX + "px";
@@ -41,15 +66,18 @@ window.onload = (event) => {
 
 window.onscroll = (event) => {
     let rotation = -30 * (window.scrollY / document.body.scrollHeight);
+
     pivot.style.transform = `rotate(${rotation}deg)`;
     night.style.opacity = 1;
 
     if (window.scrollY > window.innerHeight * 0.5) {
+        night.classList.add("zoom-out");
         navbar.classList.add("hidden");
         overview.classList.add("hidden");
         overview_left.classList.remove("hidden");
         cards[0].classList.remove("hidden");
     } else {
+        night.classList.remove("zoom-out");
         navbar.classList.remove("hidden");
         overview.classList.remove("hidden");
         overview_left.classList.add("hidden");
