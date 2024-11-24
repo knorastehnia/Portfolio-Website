@@ -3,12 +3,7 @@
     --neutral-2: hsl(200, 0%, 80%);
     --neutral-3: hsl(200, 0%, 5%);
     --neutral-4: hsl(200, 0%, 7%);
-}
-
-@property --primary-1 {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: hsl(224, 28%, 13%);
+    --primary-1: hsl(224, 28%, 13%);
 }
 
 ::selection {
@@ -68,7 +63,7 @@ body.enable-hover a {
 }
 
 a:focus-visible {
-    outline: 2px solid var(--primary-1);
+    outline: 2px dashed var(--neutral-1);
     transition: outline 0s !important;
     outline-offset: 5px;
 }
@@ -168,7 +163,7 @@ nav.hidden {
     width: max(150dvw, 150dvh);
     opacity: 1;
     transform: translate(-50%, -50%);
-    transition: all 1s;
+    transition: all 1s, background-color 0s;
     z-index: 10;
 }
 
@@ -317,7 +312,6 @@ body.enable-hover .link a:hover hr {
     margin: 0 auto 90px auto;
     overflow: hidden;
     transition: all 0.5s;
-
 }
 
 .card.hidden {
